@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "NetteApi.hpp"
 #include <WiFi.h>
-#include <HTTPClient.h>
+
 
 
 #define SSID       "SSID"
@@ -30,7 +30,11 @@ void setup() {
 }
 
 void loop() {
+  auto getReturn = addEvent.GetReqest("Pletacka2/on");
+  Serial.println("GET return : "+String(getReturn.code)+" ->\""+String(getReturn.main));
+
+
   auto postReturn = json.PostReqest("{\"number\": \"15\",\"name\": \"Plete15\",\"description\": \"\"}");
-  Serial.println("Post return : "+String(postReturn.code)+" ->\""+String(postReturn.main));
+  Serial.println("POST return : "+String(postReturn.code)+" ->\""+String(postReturn.main));
   delay(5000);
 }

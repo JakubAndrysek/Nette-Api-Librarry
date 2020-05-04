@@ -11,8 +11,10 @@ NetteApi::~NetteApi()
 {
 }
 
-String NetteApi::GetReqest(String reqest)
+NetteApi::output NetteApi::GetReqest(String reqest)
 {
+  output getOutput;
+  
   // Code is from https://techtutorialsx.com/2017/05/19/esp32-http-get-requests/
   if(WiFi.status()== WL_CONNECTED)
   {
@@ -25,21 +27,31 @@ String NetteApi::GetReqest(String reqest)
  
     if (httpCode > 0) { //Check for the returning code
  
-        String payload = http.getString();
-        Serial.println(httpCode);
-        Serial.println(payload);
-      }
- 
-    else {
-      Serial.println("Error on HTTP request");
+      String payload = http.getString();
+      // Serial.println(httpCode);
+      // Serial.println(payload);
+      getOutput.code = httpCode;
+      getOutput.main = payload;
     }
- 
-    http.end(); //Free the resources
+    else 
+    {
+      // Serial.print("Error on sending POST: ");
+      // Serial.println(httpResponseCode);
+      getOutput.code = NO_SEND;
+      getOutput.main = "Error on sending POST";
+    }
+    
+    http.end();  //Free resources
+    
   }
   else
-  {
-    Serial.println("No internet connection");
+  {  
+    // Serial.println("No internet connection");
+    getOutput.code = NO_INTERNET;
+    getOutput.main = "No internet connection";
   }
+
+  return getOutput;
   
 }
 
@@ -85,7 +97,8 @@ NetteApi::output NetteApi::PostReqest(String reqest)
     
     http.end();  //Free resources
     
-  }else
+  }
+  else
   {  
     // Serial.println("No internet connection");
     postOutput.code = NO_INTERNET;

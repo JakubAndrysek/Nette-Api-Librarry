@@ -23,7 +23,7 @@ class NetteApi
 
         NetteApi(String serverName);
         ~NetteApi();
-        String GetReqest(String reqest);
+        NetteApi::output GetReqest(String reqest);
         NetteApi::output PostReqest(String reqest);
         
 };
