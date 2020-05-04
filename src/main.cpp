@@ -4,12 +4,12 @@
 #include <HTTPClient.h>
 
 
-#define SERVER      "http://example.com/api/sensors/add-event"
 #define SSID       "SSID"
 #define PASSWORD   "PASSWORD"
 #include "credentials.h"
 
-NetteApi api(SERVER);
+NetteApi addEvent("http://example.com/api/sensors/add-event");
+NetteApi json("http://example.com/api/v1/sensors/create");
 
 void setup() {
   Serial.begin(115200);
@@ -25,12 +25,12 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   Serial.println("Start");
-  api.GetReqest("Pletacka2/on");
+  addEvent.GetReqest("Pletacka2/on");
+  delay(2000);
 }
 
 void loop() {
-  api.GetReqest("Pletacka2/work");
-  delay(1000);
-  api.GetReqest("Pletacka2/stop");
-  delay(1000);
+  auto postReturn = json.PostReqest("{\"number\": \"15\",\"name\": \"Plete15\",\"description\": \"\"}");
+  Serial.println("Post return : "+String(postReturn.code)+" ->\""+String(postReturn.main));
+  delay(5000);
 }
