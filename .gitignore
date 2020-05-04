@@ -357,3 +357,5 @@ MigrationBackup/
 .vscode/extensions.json
 
 
+src/credentials.h
+
