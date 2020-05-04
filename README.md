@@ -1,1 +1,1 @@
-# Nette-Api-Librarry for ESP32
+# Nette-Api-Library for ESP32
