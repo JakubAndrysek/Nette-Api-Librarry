@@ -19,7 +19,12 @@ NetteApi::~NetteApi()
 
 void NetteApi::setServerName(String serverName)
 {
-    _serverName = serverName;
+  _serverName = serverName;
+}
+
+String NetteApi::getServerName()
+{
+  return _serverName;
 }
 
 /**

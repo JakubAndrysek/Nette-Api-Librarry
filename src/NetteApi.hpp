@@ -11,7 +11,7 @@ class NetteApi
 
 
     private:
-        String _serverName;
+        String _serverName = "";
         struct output
         {
             int code;
@@ -31,6 +31,7 @@ class NetteApi
          */
         NetteApi();
 
+
         /**
          * @brief Nette Api constructor with server name
          * 
@@ -38,11 +39,13 @@ class NetteApi
          */
         NetteApi(String serverName);
 
+
         /**
          * @brief Nette Api destructor
          * 
          */
         ~NetteApi();
+
 
         /**
          * @brief Set Server Name
@@ -50,6 +53,15 @@ class NetteApi
          * @param serverName 
          */
         void setServerName(String serverName);
+
+
+        /**
+         * @brief Get Server Name
+         * 
+         * @param serverName 
+         */
+        String getServerName();
+
 
         /**
          * @brief Get the Reqest object
