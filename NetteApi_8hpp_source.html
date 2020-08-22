@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.19"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Nette API Library: Zdrojový soubor NetteApi.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Nette API Library
+   </div>
+   <div id="projectbrief">Library for projects with Nette API</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.19 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Hledat');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">NetteApi.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor"># pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classNetteApi.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNetteApi.html">NetteApi</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        String _serverName;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">struct </span>output</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keywordtype">int</span> code;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            String main;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            String request;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        };</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">enum</span> returnCode</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            NO_SEND = 0,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            NO_INTERNET = -1,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        };</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="classNetteApi.html#af34f1a782a782bca7fdf21537de09d83">NetteApi</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="classNetteApi.html#af34f1a782a782bca7fdf21537de09d83">NetteApi</a>(String serverName);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classNetteApi.html#a63c068b7f56e92d6a4b31a99699045c8">~NetteApi</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classNetteApi.html#afb7a04d7c7a0085309b4aa71e4898cae">setServerName</a>(String serverName);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        NetteApi::output <a class="code" href="classNetteApi.html#a4a9948fd316dedf7098bd43ee4bd0f94">GetReqest</a>(String reqest);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        NetteApi::output <a class="code" href="classNetteApi.html#afdea458e691a16b475570148b64efa51">PostReqest</a>(String reqest);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassNetteApi_html_afdea458e691a16b475570148b64efa51"><div class="ttname"><a href="classNetteApi.html#afdea458e691a16b475570148b64efa51">NetteApi::PostReqest</a></div><div class="ttdeci">NetteApi::output PostReqest(String reqest)</div><div class="ttdoc">POST request.</div><div class="ttdef"><b>Definition:</b> NetteApi.cpp:84</div></div>
+<div class="ttc" id="aclassNetteApi_html_afb7a04d7c7a0085309b4aa71e4898cae"><div class="ttname"><a href="classNetteApi.html#afb7a04d7c7a0085309b4aa71e4898cae">NetteApi::setServerName</a></div><div class="ttdeci">void setServerName(String serverName)</div><div class="ttdoc">Set Server Name.</div><div class="ttdef"><b>Definition:</b> NetteApi.cpp:20</div></div>
+<div class="ttc" id="aclassNetteApi_html_a4a9948fd316dedf7098bd43ee4bd0f94"><div class="ttname"><a href="classNetteApi.html#a4a9948fd316dedf7098bd43ee4bd0f94">NetteApi::GetReqest</a></div><div class="ttdeci">NetteApi::output GetReqest(String reqest)</div><div class="ttdoc">Get the Reqest object.</div><div class="ttdef"><b>Definition:</b> NetteApi.cpp:31</div></div>
+<div class="ttc" id="aclassNetteApi_html_af34f1a782a782bca7fdf21537de09d83"><div class="ttname"><a href="classNetteApi.html#af34f1a782a782bca7fdf21537de09d83">NetteApi::NetteApi</a></div><div class="ttdeci">NetteApi()</div><div class="ttdoc">Nette Api constructor.</div><div class="ttdef"><b>Definition:</b> NetteApi.cpp:5</div></div>
+<div class="ttc" id="aclassNetteApi_html_a63c068b7f56e92d6a4b31a99699045c8"><div class="ttname"><a href="classNetteApi.html#a63c068b7f56e92d6a4b31a99699045c8">NetteApi::~NetteApi</a></div><div class="ttdeci">~NetteApi()</div><div class="ttdoc">Nette Api destructor.</div><div class="ttdef"><b>Definition:</b> NetteApi.cpp:16</div></div>
+<div class="ttc" id="aclassNetteApi_html"><div class="ttname"><a href="classNetteApi.html">NetteApi</a></div><div class="ttdoc">Library for communication between ESP32 and Nette Api.</div><div class="ttdef"><b>Definition:</b> NetteApi.hpp:10</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generováno so 22. srp 2020 21.10:17 pro projekt Nette API Library programem&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.19
+</small></address>
+</body>
+</html>
