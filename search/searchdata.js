@@ -16,9 +16,9 @@ var indexSectionNames =
 
 var indexSectionLabels =
 {
-  0: "Vše",
-  1: "Třídy",
-  2: "Funkce",
-  3: "Stránky"
+  0: "All",
+  1: "Classes",
+  2: "Functions",
+  3: "Pages"
 };
 
