@@ -359,3 +359,4 @@ MigrationBackup/
 
 src/credentials.h
 
+src/main.cpp

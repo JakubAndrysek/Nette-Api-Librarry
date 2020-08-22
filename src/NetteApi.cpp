@@ -2,15 +2,32 @@
 #include <HTTPClient.h>
 #include <vector>
 
+NetteApi::NetteApi()
+{
+  
+}
+
 NetteApi::NetteApi(String serverName)
 {
     _serverName = serverName;
 }
 
+
 NetteApi::~NetteApi()
 {
 }
 
+void NetteApi::setServerName(String serverName)
+{
+    _serverName = serverName;
+}
+
+/**
+ * @brief GET request
+ * 
+ * @param reqest request raw request
+ * @return NetteApi::output - [int code, String main, String request] 
+ */
 NetteApi::output NetteApi::GetReqest(String reqest)
 {
   output getOutput;
@@ -38,7 +55,7 @@ NetteApi::output NetteApi::GetReqest(String reqest)
       // Serial.print("Error on sending POST: ");
       // Serial.println(httpResponseCode);
       getOutput.code = NO_SEND;
-      getOutput.main = "Error on sending POST";
+      getOutput.main = "Error on sending GET request";
     }
     
     http.end();  //Free resources
@@ -51,15 +68,18 @@ NetteApi::output NetteApi::GetReqest(String reqest)
     getOutput.main = "No internet connection";
   }
 
+  getOutput.request = String(_serverName+"/"+reqest);
+
   return getOutput;
   
 }
 
 
 /**
- * POST request - text/plain
+ * @brief POST request
+ * 
  * @param String request raw request
- * @return struct output - [int code, String main] 
+ * @return NetteApi::output output - [int code, String main, String request] 
 */
 NetteApi::output NetteApi::PostReqest(String reqest)
 {
@@ -92,7 +112,7 @@ NetteApi::output NetteApi::PostReqest(String reqest)
       // Serial.print("Error on sending POST: ");
       // Serial.println(httpResponseCode);
       postOutput.code = NO_SEND;
-      postOutput.main = "Error on sending POST";
+      postOutput.main = "Error on sending POST request";
     }
     
     http.end();  //Free resources
